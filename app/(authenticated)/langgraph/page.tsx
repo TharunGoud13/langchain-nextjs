@@ -1,6 +1,6 @@
 "use client";
 
-import { ChatInput, ChatLayout } from "@/components/ChatWindow";
+import { ChatInput, ChatLayout } from "@/components/chat/ChatWindow";
 import { GuideInfoBox } from "@/components/guide/GuideInfoBox";
 import { ReactNode, Suspense, useState } from "react";
 import { toast } from "sonner";
@@ -66,7 +66,7 @@ function Message(props: {
     <div
       className={cn(
         "max-w-[80%]",
-        props.message.type === "human" ? "ml-auto" : "mr-auto",
+        props.message.type === "human" ? "ml-auto" : "mr-auto"
       )}
     >
       <div
@@ -74,7 +74,7 @@ function Message(props: {
           `rounded-[24px] flex`,
           props.message.type === "human"
             ? "bg-secondary text-secondary-foreground px-4 py-2"
-            : null,
+            : null
         )}
       >
         <div className="whitespace-pre-wrap flex flex-col">
@@ -262,7 +262,7 @@ function ClientLanggraphPage() {
                     { type: "human", content: input },
                   ],
                 }),
-              },
+              }
             );
           }}
         />

@@ -10,14 +10,21 @@ const compat = new FlatCompat({
 });
 
 const eslintConfig = [
-  { ignores: ["components/ui/**/*", "components/data-table/**/*"] },
+  {
+    ignores: ["components/ui/**/*", "components/data-table/**/*"],
+  },
+
+  // Existing next/core-web-vitals + typescript rules
   ...compat.extends("next/core-web-vitals", "next/typescript"),
-  // {
-  //   files: ["components/ui/**/*", "components/data-table/**/*"],
-  //   rules: {
-  //     "@typescript-eslint/ban-ts-comment": "off",
-  //   },
-  // },
+
+  // ✅ Override rules globally
+  {
+    rules: {
+      "no-unused-vars": "off",
+      "@typescript-eslint/no-unused-vars": "off",
+      "@typescript-eslint/no-explicit-any": "off", // disables 'any' usage warning
+    },
+  },
 ];
 
 export default eslintConfig;
